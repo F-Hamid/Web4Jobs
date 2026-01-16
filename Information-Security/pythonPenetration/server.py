@@ -3,7 +3,7 @@ import socket
 serverSocket=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
-host=socket.gethostbyname()
+host = socket.gethostbyname(socket.gethostname())
 port= 444
 
 serverSocket.bind((host, port))
@@ -15,8 +15,8 @@ while True:
     print (f"received connection from {adress} ")
     
 
-    massage="Hello from the srver, Thank you for you connection"
-    clientsocket.send(message)
+    message="Hello from the srver, Thank you for you connection"  
+    clientsocket.send(message.encode('ascii'))
 
 
     clientsocket.close()
